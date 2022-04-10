@@ -38,10 +38,31 @@ btn_operations.forEach(btn_operation => {
 
 btn_equal.addEventListener('click', () => {
     operand2 = appended;
-    operand1 = parseFloat(operand1) + parseFloat(operand2)
-    input.textContent = operand1;
+    switch (operator) {
+        case '+':
+            operand1 = parseFloat(operand1) + parseFloat(operand2);
+            break;
+        case '-':
+            operand1 = parseFloat(operand1) - parseFloat(operand2);
+            break;
+        case '*':
+            operand1 = parseFloat(operand1) * parseFloat(operand2);
+            break;
+        case '/':
+            operand1 = parseFloat(operand1) / parseFloat(operand2);
+            break;
+    }
+    input_current.textContent = operand1;
     operand2 = '';
     appended = operand1; 
+})
+
+btn_all_clear.addEventListener('click', () => {
+    alert("im clicked");
+    operand1 = '', operand2 = '';
+    operator = '';
+    appended = '';
+    input_current.textContent = '0', input_previous.textContent = '';
 })
 
 function appendNumber(str) {
