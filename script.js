@@ -36,6 +36,14 @@ btn_operations.forEach(btn_operation => {
     })
 })
 
+btn_equal.addEventListener('click', () => {
+    operand2 = appended;
+    operand1 = parseFloat(operand1) + parseFloat(operand2)
+    input.textContent = operand1;
+    operand2 = '';
+    appended = operand1; 
+})
+
 function appendNumber(str) {
     appended = appended + str;
     return appended;
